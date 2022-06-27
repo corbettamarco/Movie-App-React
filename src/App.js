@@ -1,24 +1,53 @@
-import logo from './logo.svg';
 import './App.css';
+import { ChakraProvider } from '@chakra-ui/react'
+
 
 function App() {
+
+  const movies = [
+
+    {
+
+      title: "Terminator",
+
+      year: "2001"
+
+    },
+
+    {
+
+      title: "Terminator 2",
+
+      year: 2005
+
+    },
+
+    {
+
+      title: "Terminator 3",
+
+      year: 2008
+
+    }
+
+  ];
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider> 
+  <table>
+    <tr>
+    <th>Titolo</th><th>Anno</th>
+    </tr>
+    {movies.map((movies)=>
+     <tr>
+     <td>{movies.title}</td><td>{movies.year}</td>
+     </tr>
+    )
+  }
+  </table>
+
+    </ChakraProvider>
   );
 }
 
