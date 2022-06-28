@@ -1,6 +1,7 @@
 import { ModalBody,Text } from "@chakra-ui/react"
 import { StarIcon } from "@chakra-ui/icons"
-function MovieDetail() {
+function MovieDetail(props) {
+    const {currentMovie}=props;
 
     return (
         <ModalBody>
@@ -13,10 +14,11 @@ function MovieDetail() {
                 inconsapevolmente lavora per questa organizzazione,
                 viene posta sulla tracce di Bond.
             </Text>
-            <Text><b>Anno: </b>2001</Text>
-            <Text><b>Cast: </b>mario rossi, mario rossi, mario rossi</Text>
-            <Text><b>Rating: </b>4/5  <StarIcon fontSize="sm" mb="1" /></Text>
+            <Text><b>Anno: </b>{currentMovie.Year}</Text>
+            <Text><b>Cast: </b>{currentMovie.Plot}</Text>
+            <Text><b>Rating: </b>{currentMovie.imdbRating}  <StarIcon fontSize="sm" mb="1" /></Text>
             <Text><b>Durata: </b>120 MIN</Text>
+            <Text textTransform='uppercase'><b>Tipo: </b>{currentMovie.Type}</Text>
             <Text count={2} />
         </ModalBody>
     )

@@ -3,8 +3,9 @@ import {
 } from '@chakra-ui/react';
 import MovieDetail from './MovieDetail';
 
-function Modale() {
+const Modale = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { currentMovie } = props;
 
   return (
     <>
@@ -14,11 +15,11 @@ function Modale() {
       <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} >
         <ModalOverlay alignSelf="center" />
         <ModalContent>
-          <ModalHeader>007, DALLA RUSSIA CON AMORE</ModalHeader>
+          <ModalHeader>{currentMovie.Title}</ModalHeader>
 
-
-          <MovieDetail />
-
+          {
+          <MovieDetail currentMovie={currentMovie} />
+          }
           <ModalFooter>
             <Button colorScheme='whatsapp' mr={3} onClick={onClose}>
               Chiudi
