@@ -1,36 +1,20 @@
+import { Box, Center, ChakraProvider } from '@chakra-ui/react';
 import './App.css';
-import { Center, ChakraProvider, Button, Box, Text } from '@chakra-ui/react'
-
-import Navbar from './Navbar.js';
-import { Input } from '@chakra-ui/react'
-
-import Carte from './Carte';
-import { movies } from './Carte.js';
+import Griglia from './components/Griglia.js';
+import Navbar from './components/Navbar.js';
 
 function App() {
 
+
+
   return (
-    <ChakraProvider >
-      
-      <Box bg="grey" h="100vw">
-        <Navbar>
-        </Navbar>
-
-        <Box >
-          <Input placeholder='Cerca' w="200" m="4" h="10" bg="white" style={{ marginTop: "20px" }} />
-          <Button colorScheme='red' m="2" marginTop="1" h="11" p="5">Cerca</Button>
-          <Center>
-            <Text p="10px" style={{ font: "caption", fontSize: "2rem", fontWeight: "bold" }}>Risultati: {movies.length}</Text>
-          </Center>
-
+    <ChakraProvider>
+      <Center>
+        <Box bg="#1A1C28" h="100%" w="100%" >
+          <Navbar />
+          <Griglia />
         </Box>
-
-        <Center>
-
-          <Carte />
-        </Center>
-      </Box>
-      
+      </Center>
     </ChakraProvider>
   );
 }
