@@ -15,7 +15,7 @@ const {numeroFilm}=props;
             style={{ fontSize: "2rem", fontWeight: "normal" }}>
 
             {numeroFilm.length>0 ?
-             "Risultati : " + numeroFilm.length : "Esegui una Ricerca"}
+             "Risultati : " + numeroFilm.length : ""}
 
         </Text>
     </Center>

@@ -1,18 +1,18 @@
-import { arrMovies } from "../mocks/mockMovies"
+import axios from "axios";
 
-export const getMovies = () => {
-    return arrMovies.Search;
-}
 
-export const filterMovies = (keywords) => {
-  
-    if (keywords === "") {
-        return [];
-    }
+export const searchMovies = async (keywords) => {
 
-    const filteredMovies = getMovies().filter((movie) => movie.Title.toLowerCase().includes(keywords));
-       
-   
-    return filteredMovies;
+    
+        const response = await axios.get(
+            `http://www.omdbapi.com/?i=tt3896198&apikey=4bc01fe7&s=${keywords}`
+        );
 
-}
+        if (response.data.Response === 'False') {
+            return [];
+        } else {
+            return response.data.Search; /*al posto di response.json.Search*/
+        }
+
+    } 
+    
