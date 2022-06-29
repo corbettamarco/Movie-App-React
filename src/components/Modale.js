@@ -1,5 +1,5 @@
 import {
-  Button, Center, Modal, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure
+  Button, Center, Modal, ModalContent, ModalFooter, ModalOverlay, useDisclosure
 } from '@chakra-ui/react';
 import MovieDetail from './MovieDetail';
 
@@ -15,8 +15,6 @@ const Modale = (props) => {
       <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} >
         <ModalOverlay alignSelf="center" />
         <ModalContent>
-          <ModalHeader>{currentMovie.Title}</ModalHeader>
-
           {
           <MovieDetail currentMovie={currentMovie} />
           }

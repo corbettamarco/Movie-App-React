@@ -10,7 +10,8 @@ function Titolo(){
             <Text as="h1" 
             color="whatsapp.300" 
             fontFamily= 'Brush Script MT'
-            style={{ margin: "20px", fontSize: "3rem", fontWeight: "bold" }}>
+            fontSize={{ base: '2.5rem', sm: '1rem', lg: '3rem' }}
+            style={{ margin: "20px", fontWeight: "bold" }}>
                 MovieApp
             </Text>
 

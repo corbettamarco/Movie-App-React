@@ -1,4 +1,4 @@
-import { Center, Divider, SimpleGrid, systemProps, Text } from '@chakra-ui/react';
+import { Center, Divider, SimpleGrid } from '@chakra-ui/react';
 import { getMovies } from '../api/getMovies';
 import Carte from './Carte.js';
 import Risultati from './Risultati';
