@@ -5,8 +5,9 @@ import Search from './Search';
 import Titolo from './Titolo';
 
 
-function Navbar() {
+function Navbar(props) {
       const mobileNavMenu = useDisclosure();
+      const{searchCallback}=props;
       return (
             <>
                   <Heading
@@ -25,9 +26,9 @@ function Navbar() {
                                           color="brand.500"
                                           display={{ base: "none", md: "inline-flex" }}
                                     >
-                                          <Search />
+                                          <Search searchCallback={searchCallback}/>
                                     </HStack>
-                                    <MobileNavbar mobileNav={mobileNavMenu} />
+                                    <MobileNavbar mobileNav={mobileNavMenu} searchCallback={searchCallback} />
                               </HStack>
                         </Flex>
                   </Heading>

@@ -3,7 +3,7 @@ import { Box, CloseButton, HStack, IconButton } from '@chakra-ui/react';
 import Search from './Search';
 
 const MobileNavbar = (props) => {
-    const { mobileNav } = props;
+    const { mobileNav,searchCallback } = props;
 
     return (
         <Box display={{ base: "inline-flex", md: "none" }}>
@@ -43,7 +43,7 @@ const MobileNavbar = (props) => {
                 />
            
 
-                <Search />
+                <Search searchCallback={searchCallback}/>
             </HStack>
         </Box>
     )

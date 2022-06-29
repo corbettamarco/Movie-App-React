@@ -1,9 +1,7 @@
 import { Center, Text } from '@chakra-ui/react';
-import { getMovies } from '../api/getMovies';
 
-const movies = getMovies();
-const lentgh = movies.Search.length;
-const Risultati = () => {
+const Risultati = (props) => {
+const {numeroFilm}=props;
     return (<Center>
 
         <Text as="u"
@@ -16,7 +14,8 @@ const Risultati = () => {
             color="whatsapp.300"
             style={{ fontSize: "2rem", fontWeight: "normal" }}>
 
-            {lentgh} Risultati
+            {numeroFilm.length>0 ?
+             "Risultati : " + numeroFilm.length : "Esegui una Ricerca"}
 
         </Text>
     </Center>

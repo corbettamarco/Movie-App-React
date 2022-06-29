@@ -10,7 +10,7 @@ const Carte = (props) => {
 
   return (<>
 
-    <Box maxW='sm' borderWidth='2px' borderRadius='lg' overflow='hidden' bg="black" >
+    <Box maxW='sm' borderWidth='2px' borderRadius='lg' overflow='hidden' bg="black" maxH="650px">
       <Center>
         <Image src={currentMovie.Poster} alt={currentMovie.Title} h="425px" w="100%" />
       </Center>
