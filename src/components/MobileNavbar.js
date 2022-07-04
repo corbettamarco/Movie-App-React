@@ -6,7 +6,7 @@ const MobileNavbar = (props) => {
     const { mobileNav,searchCallback } = props;
 
     return (
-        <Box display={{ base: "inline-flex", md: "none" }}>
+        <Box display={{ base: "inline-flex", md: "none" }} >
             <IconButton
                 display={{ base: "flex", md: "none" }}
                 aria-label="Open menu"
@@ -29,7 +29,7 @@ const MobileNavbar = (props) => {
                 p={2}
                 pb={4}
                 m={2}
-                bg="white"
+                bg="black"
                 spacing={1}
                 rounded="sm"
                 shadow="sm"

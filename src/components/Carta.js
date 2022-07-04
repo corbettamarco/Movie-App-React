@@ -1,17 +1,25 @@
 import { StarIcon } from '@chakra-ui/icons';
 import { Box, Center, Image } from '@chakra-ui/react';
 import Modale from './Modale';
+import { searchSingleMovie } from '../api/getMovies'; 
+import { useState, useEffect } from 'react';
 
-
-const Carte = (props) => {
+const Carta =  (props) => {
 
   const { currentMovie } = props;
+  const [movieDetails, setMovieDetails] = useState([]);
+
+  const onLoad = async () => {
+    const movie = await searchSingleMovie(currentMovie.imdbID);
+    setMovieDetails(movie);
+}
+useEffect(() => { onLoad() }, [])
 
 
   return (<>
 
     <Box maxW='sm' borderWidth='2px' borderRadius='lg' overflow='hidden' bg="black" maxH="650px">
-      <Center>
+      <Center>  
         <Image src={currentMovie.Poster} alt={currentMovie.Title} h="425px" w="100%" />
       </Center>
       <Box p='6'>
@@ -25,7 +33,7 @@ const Carte = (props) => {
             textTransform='uppercase'
 
           >
-            {currentMovie.Year} &bull; {currentMovie.imdbRating} <StarIcon fontSize="sm" mb="1" />
+              {movieDetails.imdbRating } <StarIcon fontSize="sm" mb="1" /> &bull; {currentMovie.Year} 
           </Box>
         </Box>
 
@@ -67,4 +75,4 @@ const Carte = (props) => {
   </>)
 }
 
-export default Carte;
+export default Carta;

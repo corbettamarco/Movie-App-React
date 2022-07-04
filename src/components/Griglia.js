@@ -1,7 +1,8 @@
-import { Center, Divider, SimpleGrid, Text,Box } from '@chakra-ui/react';
-import Carte from './Carte.js';
+import { Center, Divider, SimpleGrid } from '@chakra-ui/react';
+import Carta from './Carta.js';
+import EseguiRicerca from './EseguiRicerca.js';
+import NoResults from './NoResults.js';
 import Risultati from './Risultati';
-
 
 
 const Griglia = (props) => {
@@ -9,29 +10,25 @@ const Griglia = (props) => {
     return (
         <>
             {
-                <Risultati numeroFilm={movies} />
+                movies && movies.length !== 0
+                    ? <Risultati numeroFilm={movies} />
+                    : <EseguiRicerca />
             }
+
             <Center >
                 <Divider orientation='horizontal' m="5" w="100%" />
             </Center>
             <Center>
-                <SimpleGrid minH="100vh" minChildWidth='250px' gap={6} width="80%" p="10px">
-                    {
-                        movies && movies.length > 0 &&
-                        movies.map((movie, index) => <Carte currentMovie={movie} key={index} />)
-                    }
+                <SimpleGrid minH="100vh" minChildWidth='250px' gap={6} width="80%" p="10px" >
                     {
                         movies && movies.length === 0 &&
-                        <Box>
-                            <Text color="red"> Nessun Risultato</Text>
-                        </Box>
+                        <NoResults />
                     }
 
                     {
-                        !movies && movies.length === 0 &&
-                        <Box>
-                            <Text color="red"> Esegui una ricerca</Text>
-                        </Box>
+
+                        movies && movies.length > 0 &&
+                        movies.map((movie, index) => <Carta currentMovie={movie} key={index} />)
                     }
 
                 </SimpleGrid>

@@ -1,4 +1,4 @@
-import { Box, Center, ChakraProvider } from '@chakra-ui/react';
+import { Box, Center, ChakraProvider, VStack } from '@chakra-ui/react';
 import { searchMovies } from './api/getMovies';
 import './App.css';
 import Griglia from './components/Griglia.js';
@@ -8,22 +8,24 @@ import { useState } from 'react';
 
 function App() {
 
-  const [movies, setMovies] = useState(); //variabile di stato dichiarata con funzione di hook//
+  const [movies, setMovies] = useState(undefined); //variabile di stato dichiarata con funzione di hook//
   //useState ritorna un array//
-  
-  const searchCallback= async(keywords) => {
+
+  const searchCallback = async (keywords,tipology) => {
     if (keywords === "") return;
-    const movies=await searchMovies(keywords);
+    const movies = await searchMovies(keywords,tipology);
     setMovies(movies); /*rendering delle cards*/
   }
 
   return (
-    <ChakraProvider>
+    <ChakraProvider >
       <Center>
-        <Box bg="#1A1C28" h="100%" w="100%" >
-          <Navbar searchCallback={searchCallback} />
-          <Griglia movies={movies} />
-        </Box>
+        <VStack w='100%' h='100%' >
+          <Box bg="#1A1C28" h="100%" w="100%" >
+            <Navbar searchCallback={searchCallback} />
+            <Griglia movies={movies}  />
+          </Box>
+        </VStack>
       </Center>
     </ChakraProvider>
   );
