@@ -1,5 +1,5 @@
 
-import { Flex, Heading, HStack, useDisclosure } from '@chakra-ui/react';
+import { Box, Flex, Heading, HStack, useDisclosure } from '@chakra-ui/react';
 import MobileNavbar from './MobileNavbar';
 import Search from './Search';
 import Titolo from './Titolo';
@@ -7,9 +7,10 @@ import Titolo from './Titolo';
 
 function Navbar(props) {
       const mobileNavMenu = useDisclosure();
-      const{searchCallback}=props;
+      const { searchCallback } = props;
       return (
-            <>
+            <Box position={"sticky"} top={"0"}>
+           
                   <Heading
                         bg="black"
                         w="full"
@@ -26,13 +27,13 @@ function Navbar(props) {
                                           color="brand.500"
                                           display={{ base: "none", md: "inline-flex" }}
                                     >
-                                          <Search searchCallback={searchCallback}/>
+                                          <Search searchCallback={searchCallback} />
                                     </HStack>
                                     <MobileNavbar mobileNav={mobileNavMenu} searchCallback={searchCallback} />
                               </HStack>
                         </Flex>
                   </Heading>
-            </>
+            </Box>
       );
 }
 

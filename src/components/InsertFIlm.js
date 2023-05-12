@@ -1,5 +1,5 @@
 import { ArrowDownIcon, StarIcon } from '@chakra-ui/icons';
-import { Box, Button, Center, CloseButton, Flex, HStack, Img, Input, Select, Spacer, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, CloseButton, Flex, Img, Input, Select, Spacer, Stack, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
 
 const InsertFilm = (props) => {
@@ -38,8 +38,9 @@ const InsertFilm = (props) => {
                 color="whatsapp.300"
                 style={{ fontSize: "2rem", fontWeight: "normal" }}>
                 Inserisci</Text>
-              <Spacer />
-              <HStack gap='2' m="5" flex='1' >
+              <Spacer /> 
+              <Stack gap='2' m="5" flex='1'>
+               
                 <Select icon={<ArrowDownIcon borderRadius={50} bgColor={"whatsapp.300"} />} onClick={(e) => { setTipology(e.target.value); setState("typing") }} textColor="whatsapp.300" borderColor={'whatsapp.300'} mb="2"  >
                   <option value='movie' style={{ backgroundColor: "black" }}>FILM</option>
                   <option value='series' style={{ backgroundColor: "black" }}>SERIE</option>
@@ -56,10 +57,11 @@ const InsertFilm = (props) => {
                     placeholder='Anno' textColor="whatsapp.300" borderColor={'whatsapp.300'} textTransform="uppercase" minW="fit-content" a />
                 </VStack>
                 <Button bg='whatsapp.300'
-                  width="30%"
+                  width="fit-content"
+                  p=".5rem"
                   disabled={state === "inserting" || titolo === "" || anno === ""}
                   onClick={(titolo, anno, tipology) => { setState("inserting"); insertHandler(titolo, anno, tipology) }}>Inserisci</Button>
-              </HStack>
+              </Stack>
             </VStack>
           </Flex>
         </Center>) :
