@@ -13,7 +13,7 @@ const Carta =  (props) => {
     const movie = await searchSingleMovie(currentMovie.imdbID);
     setMovieDetails(movie);
 }
-useEffect(() => { onLoad() }, [])
+useEffect(() => { onLoad() })
 
 
   return (<>
