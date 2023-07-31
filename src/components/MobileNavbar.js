@@ -1,4 +1,4 @@
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
 import { Box, CloseButton, HStack, IconButton } from '@chakra-ui/react';
 import Search from './Search';
 
@@ -13,10 +13,11 @@ const MobileNavbar = (props) => {
                 fontSize="20px"
                 bg="whatsapp.300"
                 variant="solid"
-                mr="5"
-                icon={<HamburgerIcon />}
+                icon={<SearchIcon />}
                 onClick={mobileNav.onOpen}
                 size='lg'
+                className={!mobileNav.isOpen ? "beacon" : ""}
+                mr={'1rem'}
             />
 
             <HStack
@@ -25,14 +26,14 @@ const MobileNavbar = (props) => {
                 left={0}
                 right={0}
                 display={mobileNav.isOpen ? "flex" : "none"}
-                flexDirection="row"
                 p={2}
                 pb={4}
-                m={2}
+                
                 bg="black"
                 spacing={1}
-                rounded="sm"
-                shadow="sm"
+                
+                align={'baseline'}
+                justifyContent={'space-between'}
             >
                 <CloseButton
                     aria-label="Close menu"

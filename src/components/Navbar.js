@@ -9,7 +9,7 @@ function Navbar(props) {
       const mobileNavMenu = useDisclosure();
       const { searchCallback } = props;
       return (
-            <Box position={"sticky"} top={"0"}>
+            <Box position={"sticky"} top={"0"} >
            
                   <Heading
                         bg="black"
@@ -17,10 +17,11 @@ function Navbar(props) {
                         px={{ base: 2, sm: 4 }}
                         py={4}
                         shadow="md"
+                        
                   >
-                        <Flex alignItems="center" justifyContent="space-between" mx="auto">
+                        <Flex justifyContent="space-between" mx="auto" >
                               <Titolo />
-                              <HStack display="flex" alignItems="center" spacing={1}>
+                              <HStack display="flex"  spacing={1}>
                                     <HStack
                                           spacing={1}
                                           mr={5}
